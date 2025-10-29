@@ -1,0 +1,34 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+def plot_univariate_nutri_info(df: pd.DataFrame) -> None:
+    fig, axes = plt.subplots(2, 3, figsize=(15, 4))
+
+    sns.histplot(df_encoded['remainder__Carbs'], kde=True, ax=axes[0,0],)
+    sns.histplot(df_encoded['remainder__Proteins'], kde=True, ax=axes[0,1])
+    sns.histplot(df_encoded['remainder__Fats'],kde=True, ax=axes[0,2])
+
+
+    sns.histplot(df_encoded['remainder__sugar_g'], kde=True, ax=axes[1,0],)
+    sns.histplot(df_encoded['remainder__sodium_mg'], kde=True, ax=axes[1,1])
+    sns.histplot(df_encoded['remainder__cholesterol_mg'], kde=True, ax=axes[1,2])
+
+    plt.tight_layout()
+    plt.show()
+
+def plot_univariate_meal_info(df: pd.DataFrame) -> None:
+    fig, axes = plt.subplots(2, 3, figsize=(15, 4))
+
+    sns.histplot(df_encoded['remainder__serving_size_g'], kde=True, ax=axes[0,0],)
+    sns.histplot(df_encoded['remainder__Daily meals frequency'], kde=True, ax=axes[0,1])
+    sns.histplot(df_encoded['remainder__Fat_Percentage'],kde=True, ax=axes[0,2])
+
+
+    sns.histplot(df_encoded['remainder__Water_Intake (liters)'], kde=True, ax=axes[1,0],)
+    sns.histplot(df_encoded['remainder__Weight (kg)'], kde=True, ax=axes[1,1])
+    sns.histplot(df_encoded['remainder__Height (m)'], kde=True, ax=axes[1,2])
+
+    plt.tight_layout()
+    plt.show()
